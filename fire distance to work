@@ -1,0 +1,18 @@
+ dist <- read.csv("dept_distance.csv",header=TRUE,stringsAsFactors=FALSE)
+ summary(dist)
+
+#    City              Miles            dist.to.work  
+# Length:125         Length:125         Min.   : 5.00  
+# Class :character   Class :character   1st Qu.: 5.00  
+# Mode  :character   Mode  :character   Median :30.00  
+#                                       Mean   :35.36  
+#                                       3rd Qu.:70.00  
+#                                       Max.   :80.00
+
+dist$City <- as.factor(dist$City)
+dist$fire.dept <- dist$City
+
+dist$fire.dept <- as.character(dist$fire.dept)
+dist$fire.dept[dist$City=="BEL"] <- "Belmont"
+dist$fire.dept[dist$City=="FC"] <- "Foster City"
+dist$fire.dept[dist$City=="SM"] <- "San Mateo"
